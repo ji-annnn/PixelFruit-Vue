@@ -81,9 +81,9 @@ defineExpose({
 /* 自定义 Input 和 Select 样式 */
 .dark-input, select {
   width: 100%;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
   padding: 10px 12px;
   border-radius: 4px;
   font-size: 13px;
@@ -93,7 +93,7 @@ defineExpose({
 }
 
 .dark-input:focus, select:focus {
-  border-color: var(--accent-blue);
+  border-color: var(--input-focus-border);
 }
 
 .select-wrapper {
@@ -125,7 +125,7 @@ select {
 }
 
 .btn-confirm {
-  background-color: #5b89f7;
+  background-color: var(--btn-normal);
   color: white;
   border: none;
   padding: 8px 24px;

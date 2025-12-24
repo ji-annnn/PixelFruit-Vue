@@ -247,7 +247,7 @@
   
   .icon-btn { background: none; color: var(--text-sub); padding: 0; font-size: 18px; }
   .btn-primary-ghost {
-    background-color: var(--bg-secondary);
+    background-color: var(--btn-ghost);
     color: var(--text-main);
     border: 1px solid var(--border-color);
     padding: 8px 16px;
@@ -334,11 +334,17 @@
   .flex-row { display: flex; gap: 8px; }
   .dark-select {
     flex: 1;
-    background-color: var(--bg-secondary);
-    color: var(--text-main);
-    border: none;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
     padding: 5px;
     border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .dark-select:focus {
+    border-color: var(--input-focus-border);
   }
   
   .action-footer {

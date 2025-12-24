@@ -11,6 +11,12 @@
   --btn-primary: #2b4c9b;
   --btn-danger: #7a2e2e;
   --btn-dark: #444;
+  --btn-normal: #3a6df0;
+  --btn-ghost: #3e4c63;
+  --input-bg: #383838;
+  --input-text: #fff;
+  --input-border: #4a4a4a;
+  --input-focus-border: #5b89f7;
 }
 
 * {

@@ -15,6 +15,7 @@ app.use(i18n)
 
 // 初始化时应用颜色主题
 const uiStore = useUIStore()
+uiStore.initThemePresets()
 uiStore.applyThemeToDocument()
 
 app.mount('#app')

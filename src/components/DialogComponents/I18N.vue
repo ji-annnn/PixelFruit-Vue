@@ -31,9 +31,9 @@ const handleLanguageChange = () => {
 }
 
 .language-select {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  color: var(--text-main);
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
   padding: 6px 12px;
   border-radius: 4px;
   font-size: 13px;
@@ -43,11 +43,11 @@ const handleLanguageChange = () => {
 }
 
 .language-select:focus {
-  border-color: var(--accent-blue);
+  border-color: var(--input-focus-border);
 }
 
 .language-select:hover {
-  border-color: var(--accent-blue);
+  border-color: var(--input-focus-border);
 }
 </style>
 

@@ -30,6 +30,13 @@ export interface ColorTheme {
   btnPrimary: string
   btnDanger: string
   btnDark: string
+  btnNormal: string
+  btnGhost: string
+  // 输入框色
+  inputBg: string
+  inputText: string
+  inputBorder: string
+  inputFocusBorder: string
 }
 
 
