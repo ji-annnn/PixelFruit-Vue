@@ -72,8 +72,20 @@
     "gpt4o": "GPT-4o"
   },
   "about": {
-    "version": "版本 v1.0.0",
-    "description": "这是一个高仿设置组件。"
+    "title": "像素果",
+    "version": "版本 2.0.0",
+    "description1": "像素果是一款强大的 RAW 图像处理工具，支持多种 RAW 格式文件的读取和处理。",
+    "description2": "提供丰富的图像调整功能，包括颜色调整、细节处理、滤镜效果等。",
+    "featuresTitle": "主要功能",
+    "feature1": "支持多种 RAW 格式（CR2, NEF, ARW, DNG, RAW, RW2）",
+    "feature2": "实时图像调整和预览",
+    "feature3": "颜色调整和细节处理",
+    "feature4": "滤镜预设和自定义配置",
+    "feature5": "颜色替换功能",
+    "feature6": "直方图显示",
+    "feature7": "图像导出（PNG/JPEG）",
+    "github": "GitHub",
+    "copyright": "© 2025 像素果. All rights reserved."
   },
   "ui": {
     "title": "UI设置",

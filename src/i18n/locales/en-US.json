@@ -72,8 +72,20 @@
     "gpt4o": "GPT-4o"
   },
   "about": {
-    "version": "Version v1.0.0",
-    "description": "This is a high-fidelity settings component."
+    "title": "PixelFruit",
+    "version": "Version 2.0.0",
+    "description1": "PixelFruit is a powerful RAW image processing tool that supports reading and processing various RAW format files.",
+    "description2": "Provides rich image adjustment features, including color adjustment, detail processing, filter effects, and more.",
+    "featuresTitle": "Main Features",
+    "feature1": "Support for multiple RAW formats (CR2, NEF, ARW, DNG, RAW, RW2)",
+    "feature2": "Real-time image adjustment and preview",
+    "feature3": "Color adjustment and detail processing",
+    "feature4": "Filter presets and custom configurations",
+    "feature5": "Color replacement feature",
+    "feature6": "Histogram display",
+    "feature7": "Image export (PNG/JPEG)",
+    "github": "GitHub",
+    "copyright": "© 2025 PixelFruit. All rights reserved."
   },
   "ui": {
     "title": "UI Settings",

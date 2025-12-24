@@ -423,6 +423,13 @@ const exportCurrentTheme = () => {
   display: flex;
   flex-direction: column;
   padding: 0;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.ui-panel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .section {
