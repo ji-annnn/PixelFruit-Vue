@@ -1,0 +1,95 @@
+{
+  "common": {
+    "settings": "Settings",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "reset": "Reset",
+    "save": "Save",
+    "export": "Export",
+    "import": "Import",
+    "clear": "Clear",
+    "noFileSelected": "No file selected",
+    "noImage": "No image",
+    "uploadImage": "Please upload image"
+  },
+  "dialog": {
+    "title": "Settings",
+    "aiSettings": "AI Settings",
+    "about": "About", 
+    "ui": "UI Settings",
+    "i18n": "Language Settings"
+  },
+  "leftTab": {
+    "fileUpload": "File Upload",
+    "selectRawFile": "Select RAW File",
+    "basicSettings": "Basic Settings",
+    "autoWhiteBalance": "Auto White Balance",
+    "cameraWhiteBalance": "Camera White Balance",
+    "viewLargeImage": "View Large Image",
+    "brightness": "Brightness",
+    "exposure": "Exposure Compensation",
+    "saturation": "Saturation",
+    "contrast": "Contrast",
+    "presetFilter": "Preset Filter",
+    "noFilter": "No Filter",
+    "vivid": "Vivid",
+    "soft": "Soft",
+    "bw": "Black & White",
+    "saveCurrentConfig": "Save Current Config",
+    "lutColorTable": "LUT Color Lookup Table",
+    "importLUT": "Import LUT",
+    "exportPNG": "Export PNG",
+    "exportJPEG": "Export JPEG"
+  },
+  "rightTab": {
+    "colorAdjust": "Color Adjust",
+    "detailProcess": "Detail Process",
+    "colorReplace": "Color Replace",
+    "redHue": "Red Hue",
+    "greenHue": "Green Hue",
+    "blueHue": "Blue Hue",
+    "highlights": "Highlights",
+    "shadows": "Shadows",
+    "whites": "Whites",
+    "featureDeveloping": "Feature developing...",
+    "imageDetail": "Image Detail - Follow Mode",
+    "position": "Position:",
+    "rgb": "RGB:",
+    "brightness": "Brightness:",
+    "hue": "Hue:"
+  },
+  "ai": {
+    "provider": "AI Model Provider",
+    "modelName": "Model Name",
+    "apiKey": "API Key",
+    "apiKeyPlaceholder": "Please enter API Key",
+    "alibaba": "Alibaba",
+    "openai": "OpenAI",
+    "anthropic": "Anthropic",
+    "qwenVlFlash": "Qwen-VL-Flash",
+    "qwenVlMax": "Qwen-VL-Max",
+    "gpt4o": "GPT-4o"
+  },
+  "about": {
+    "version": "Version v1.0.0",
+    "description": "This is a high-fidelity settings component."
+  },
+  "ui": {
+    "title": "UI Settings",
+    "bgDark": "Dark Background",
+    "bgDarkDesc": "Left panel, Right panel, Dialog sidebar",
+    "bgCard": "Card Background",
+    "bgCardDesc": "Dialog container, Content area",
+    "textMain": "Main Text Color",
+    "textMainDesc": "All main text, Button text",
+    "accentBlue": "Accent Blue",
+    "accentBlueDesc": "Selected items, Links, Sliders, Focus borders",
+    "accentRed": "Accent Red",
+    "accentRedDesc": "Danger buttons, Warning prompts",
+    "btnPrimary": "Primary Button Color",
+    "btnPrimaryDesc": "Main action buttons (Export, Save, etc.)",
+    "reset": "Reset to Default"
+  }
+}
+

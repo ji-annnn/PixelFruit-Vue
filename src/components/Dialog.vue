@@ -6,7 +6,7 @@
       <div class="dialog-container" @click.stop>
         <!-- 顶部标题栏 -->
         <div class="dialog-header">
-          <span class="title">设置</span>
+          <span class="title">{{ $t('dialog.title') }}</span>
           <button class="close-btn" @click="close">×</button>
         </div>
 
@@ -37,10 +37,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
 import AI from "./DialogComponents/AI.vue";
 import About from "./DialogComponents/About.vue";
 import type { DialogItem } from "../type";
 import UI from "./DialogComponents/UI.vue";
+import I18N from "./DialogComponents/I18N.vue";
+
+const { t } = useI18n();
 
 const props = defineProps({
   // 控制弹窗显示
@@ -53,10 +57,11 @@ const props = defineProps({
 const emit = defineEmits(["update:visible"]);
 
 // Dialog 数据配置
-const dialogData = ref<DialogItem[]>([
-  { id: 1, name: "AI设置", component: AI, key: "ai" },
-  { id: 2, name: "关于", component: About, key: "about" },
-  { id: 3, name: "主题设置", component: UI, key: "ui" },
+const dialogData = computed<DialogItem[]>(() => [
+  { id: 1, name: t('dialog.aiSettings'), component: AI, key: "ai" },
+  { id: 2, name: t('dialog.about'), component: About, key: "about" },
+  { id: 3, name: t('dialog.ui'), component: UI, key: "ui" },
+  { id: 4, name: t('dialog.i18n'), component: I18N, key: "i18n" },
 ]);
 
 // 内部状态管理
@@ -114,14 +119,14 @@ const handleConfirm = () => {
 .dialog-container {
   width: 550px;
   height: 400px; /* 固定高度或者使用 min-height */
-  background-color: #2b2b2b;
+  background-color: var(--bg-card);
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  color: #e0e0e0;
+  color: var(--text-main);
   font-family: "Segoe UI", sans-serif;
-  border: 1px solid #444;
+  border: 1px solid var(--border-color);
 }
 
 /* 头部 */
@@ -130,7 +135,7 @@ const handleConfirm = () => {
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  border-bottom: 1px solid #3a3a3a;
+  border-bottom: 1px solid var(--border-color);
 }
 .title {
   font-size: 16px;
@@ -139,14 +144,14 @@ const handleConfirm = () => {
 .close-btn {
   background: none;
   border: none;
-  color: #999;
+  color: var(--text-sub);
   font-size: 20px;
   cursor: pointer;
   padding: 0;
   line-height: 1;
 }
 .close-btn:hover {
-  color: #fff;
+  color: var(--text-main);
 }
 
 /* 主体布局 */
@@ -154,14 +159,15 @@ const handleConfirm = () => {
   display: flex;
   flex: 1;
   overflow: hidden;
+  min-height: 0;
 }
 
 /* 左侧侧边栏 */
 .sidebar {
   width: 120px;
-  background-color: #262626; /* 比右侧稍深 */
+  background-color: var(--bg-dark);
   padding: 20px 0;
-  border-right: 1px solid #3a3a3a;
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -170,16 +176,16 @@ const handleConfirm = () => {
   padding: 10px 0;
   text-align: center;
   font-size: 14px;
-  color: #888;
+  color: var(--text-sub);
   cursor: pointer;
   transition: all 0.2s;
   position: relative;
 }
 .nav-item:hover {
-  color: #ccc;
+  color: var(--text-main);
 }
 .nav-item.active {
-  color: #5b89f7; /* 选中文字变蓝 */
+  color: var(--accent-blue);
   background-color: rgba(91, 137, 247, 0.1);
 }
 .nav-item.active::before {
@@ -189,7 +195,7 @@ const handleConfirm = () => {
   top: 10px;
   bottom: 10px;
   width: 3px;
-  background-color: #5b89f7;
+  background-color: var(--accent-blue);
 }
 
 /* 右侧内容 */
@@ -199,6 +205,9 @@ const handleConfirm = () => {
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #2b2b2b;
+  background-color: var(--bg-card);
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
 }
 </style>

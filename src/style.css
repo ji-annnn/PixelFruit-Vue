@@ -1,0 +1,35 @@
+:root {
+  /* 颜色主题变量 - 由 UI Store 动态设置 */
+  --bg-dark: #1e1e1e;
+  --bg-card: #2b2b2b;
+  --bg-secondary: #333333;
+  --text-main: #e0e0e0;
+  --text-sub: #a0a0a0;
+  --accent-blue: #3a6df0;
+  --accent-red: #a83232;
+  --border-color: #444;
+  --btn-primary: #2b4c9b;
+  --btn-danger: #7a2e2e;
+  --btn-dark: #444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+}
+

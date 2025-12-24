@@ -1,40 +1,40 @@
 <template>
   <div class="form-panel">
     <div class="form-group">
-      <label>AI 模型厂商</label>
+      <label>{{ $t('ai.provider') }}</label>
       <div class="select-wrapper">
         <select v-model="formData.provider">
-          <option value="alibaba">阿里巴巴</option>
-          <option value="openai">OpenAI</option>
-          <option value="anthropic">Anthropic</option>
+          <option value="alibaba">{{ $t('ai.alibaba') }}</option>
+          <option value="openai">{{ $t('ai.openai') }}</option>
+          <option value="anthropic">{{ $t('ai.anthropic') }}</option>
         </select>
       </div>
     </div>
 
     <div class="form-group">
-      <label>模型名称</label>
+      <label>{{ $t('ai.modelName') }}</label>
       <div class="select-wrapper">
         <select v-model="formData.modelName">
-          <option value="qwen-vl-flash">通义千问3-VL-Flash</option>
-          <option value="qwen-vl-max">通义千问-VL-Max</option>
-          <option value="gpt-4o">GPT-4o</option>
+          <option value="qwen-vl-flash">{{ $t('ai.qwenVlFlash') }}</option>
+          <option value="qwen-vl-max">{{ $t('ai.qwenVlMax') }}</option>
+          <option value="gpt-4o">{{ $t('ai.gpt4o') }}</option>
         </select>
       </div>
     </div>
 
     <div class="form-group">
-      <label>API Key</label>
+      <label>{{ $t('ai.apiKey') }}</label>
       <input 
         type="password" 
         v-model="formData.apiKey" 
-        placeholder="请输入API Key"
+        :placeholder="$t('ai.apiKeyPlaceholder')"
         class="dark-input"
       />
     </div>
 
     <!-- 底部按钮 -->
     <div class="footer-actions">
-      <button class="btn-confirm" @click="handleConfirm">确定</button>
+      <button class="btn-confirm" @click="handleConfirm">{{ $t('common.confirm') }}</button>
     </div>
   </div>
 </template>
@@ -74,16 +74,16 @@ defineExpose({
 .form-group label {
   display: block;
   font-size: 12px;
-  color: #aaa;
+  color: var(--text-sub);
   margin-bottom: 8px;
 }
 
 /* 自定义 Input 和 Select 样式 */
 .dark-input, select {
   width: 100%;
-  background-color: #383838;
-  border: 1px solid #4a4a4a;
-  color: #fff;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
   padding: 10px 12px;
   border-radius: 4px;
   font-size: 13px;
@@ -93,7 +93,7 @@ defineExpose({
 }
 
 .dark-input:focus, select:focus {
-  border-color: #5b89f7;
+  border-color: var(--accent-blue);
 }
 
 .select-wrapper {
@@ -103,7 +103,7 @@ defineExpose({
 .select-wrapper::after {
   content: '▼';
   font-size: 10px;
-  color: #888;
+  color: var(--text-sub);
   position: absolute;
   right: 12px;
   top: 50%;

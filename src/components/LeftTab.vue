@@ -4,7 +4,7 @@
       <!-- 模块 1: 文件上传 -->
       <div class="card">
         <div class="card-header">
-          <span>文件上传</span>
+          <span>{{ $t('leftTab.fileUpload') }}</span>
           <button class="icon-btn" @click="openDialog">⚙️</button>
         </div>
         <div class="upload-area">
@@ -16,10 +16,10 @@
             accept=".raw,.dng,.cr2,.nef,.arw" 
           />
           <button class="btn-primary-ghost" @click="triggerFileUpload">
-            选择 RAW 文件
+            {{ $t('leftTab.selectRawFile') }}
           </button>
           <div class="file-status">
-            {{ config.fileName || '未选择文件' }}
+            {{ config.fileName || $t('common.noFileSelected') }}
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
       <!-- 模块 2: 基本设置 -->
       <div class="card mt-2">
         <div class="card-header">
-          <span>基本设置</span>
+          <span>{{ $t('leftTab.basicSettings') }}</span>
         </div>
   
         <!-- 白平衡复选框 -->
@@ -38,7 +38,7 @@
               v-model="config.autoWhiteBalance"
               @change="handleWbChange('auto')"
             >
-            <span>自动白平衡</span>
+            <span>{{ $t('leftTab.autoWhiteBalance') }}</span>
           </label>
           <label class="checkbox-item">
             <input 
@@ -46,17 +46,17 @@
               v-model="config.cameraWhiteBalance"
               @change="handleWbChange('camera')"
             >
-            <span>相机白平衡</span>
+            <span>{{ $t('leftTab.cameraWhiteBalance') }}</span>
           </label>
         </div>
   
-        <button class="btn-primary full-width mt-2">查看大屏图片</button>
+        <button class="btn-primary full-width mt-2">{{ $t('leftTab.viewLargeImage') }}</button>
   
         <!-- 滑块控制区域 -->
         <div class="sliders-area">
           <!-- 亮度 -->
           <div class="slider-item">
-            <div class="slider-label">亮度</div>
+            <div class="slider-label">{{ $t('leftTab.brightness') }}</div>
             <div class="slider-control">
               <input 
                 type="range" 
@@ -69,7 +69,7 @@
   
           <!-- 曝光补偿 -->
           <div class="slider-item">
-            <div class="slider-label">曝光补偿</div>
+            <div class="slider-label">{{ $t('leftTab.exposure') }}</div>
             <div class="slider-control">
               <input 
                 type="range" 
@@ -82,7 +82,7 @@
   
           <!-- 饱和度 -->
           <div class="slider-item">
-            <div class="slider-label">饱和度</div>
+            <div class="slider-label">{{ $t('leftTab.saturation') }}</div>
             <div class="slider-control">
               <input 
                 type="range" 
@@ -95,7 +95,7 @@
   
           <!-- 对比度 -->
           <div class="slider-item">
-            <div class="slider-label">对比度</div>
+            <div class="slider-label">{{ $t('leftTab.contrast') }}</div>
             <div class="slider-control">
               <input 
                 type="range" 
@@ -109,32 +109,32 @@
   
         <!-- 预设滤镜 -->
         <div class="control-group">
-          <div class="label">预设滤镜</div>
+          <div class="label">{{ $t('leftTab.presetFilter') }}</div>
           <div class="flex-row">
             <select v-model="config.filter" class="dark-select">
-              <option value="none">无滤镜</option>
-              <option value="vivid">鲜艳</option>
-              <option value="soft">柔和</option>
-              <option value="bw">黑白</option>
+              <option value="none">{{ $t('leftTab.noFilter') }}</option>
+              <option value="vivid">{{ $t('leftTab.vivid') }}</option>
+              <option value="soft">{{ $t('leftTab.soft') }}</option>
+              <option value="bw">{{ $t('leftTab.bw') }}</option>
             </select>
-            <button class="btn-primary small">保存当前配置</button>
+            <button class="btn-primary small">{{ $t('leftTab.saveCurrentConfig') }}</button>
           </div>
         </div>
   
         <!-- LUT -->
         <div class="control-group">
-          <div class="label">LUT 颜色查找表</div>
+          <div class="label">{{ $t('leftTab.lutColorTable') }}</div>
           <div class="flex-row">
-            <button class="btn-dark full-width">导入 LUT</button>
-            <button class="btn-dark">清除</button>
+            <button class="btn-dark full-width">{{ $t('leftTab.importLUT') }}</button>
+            <button class="btn-dark">{{ $t('common.clear') }}</button>
           </div>
         </div>
   
         <!-- 底部操作按钮 -->
         <div class="action-footer">
-          <button class="btn-danger">重置</button>
-          <button class="btn-primary">导出 PNG</button>
-          <button class="btn-primary">导出 JPEG</button>
+          <button class="btn-danger">{{ $t('common.reset') }}</button>
+          <button class="btn-primary">{{ $t('leftTab.exportPNG') }}</button>
+          <button class="btn-primary">{{ $t('leftTab.exportJPEG') }}</button>
         </div>
   
         <Dialog 
@@ -150,9 +150,12 @@
   
   <script setup>
   import { ref } from 'vue';
+  import { useI18n } from 'vue-i18n';
   import { storeToRefs } from 'pinia';
   import { useUIStore } from '../store/UI';
   import Dialog from './Dialog.vue';
+
+  const { t } = useI18n();
   
   const uiStore = useUIStore();
   const { leftConfig, dialog } = storeToRefs(uiStore);
@@ -190,23 +193,12 @@
   </script>
   
   <style scoped>
-  /* 基础变量 */
-  :root {
-    --bg-dark: #2b2b2b;
-    --bg-card: #333333;
-    --text-main: #e0e0e0;
-    --text-sub: #a0a0a0;
-    --accent-blue: #3a6df0;
-    --accent-red: #a83232;
-    --border-color: #444;
-  }
-  
   .panel-container {
     width: 320px;
-    background-color: #1e1e1e;
+    background-color: var(--bg-dark);
     padding: 10px;
     font-family: 'Segoe UI', sans-serif;
-    color: #e0e0e0;
+    color: var(--text-main);
     font-size: 14px;
     border-radius: 4px;
   }
@@ -221,7 +213,7 @@
     align-items: center;
     font-size: 16px;
     font-weight: 500;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
     margin-bottom: 12px;
   }
@@ -238,7 +230,7 @@
   .hidden-input { display: none; }
   .file-status {
     margin-top: 8px;
-    color: #888;
+    color: var(--text-sub);
     font-size: 12px;
   }
   
@@ -253,24 +245,24 @@
   }
   button:hover { opacity: 0.9; }
   
-  .icon-btn { background: none; color: #888; padding: 0; font-size: 18px; }
+  .icon-btn { background: none; color: var(--text-sub); padding: 0; font-size: 18px; }
   .btn-primary-ghost {
-    background-color: #3e4c63;
-    color: #fff;
-    border: 1px solid #4a5a75;
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
     padding: 8px 16px;
   }
   .btn-primary {
-    background-color: #2b4c9b; /* 接近图中的蓝色 */
+    background-color: var(--btn-primary);
     color: white;
   }
   .btn-danger {
-    background-color: #7a2e2e; /* 接近图中的红色 */
+    background-color: var(--btn-danger);
     color: white;
   }
   .btn-dark {
-    background-color: #444;
-    color: #ddd;
+    background-color: var(--btn-dark);
+    color: var(--text-main);
   }
   .full-width { width: 100%; }
   .small { font-size: 12px; padding: 4px 8px; }
@@ -289,7 +281,7 @@
   }
   .checkbox-item input {
     margin-right: 8px;
-    accent-color: #3a6df0; /* 蓝色勾选框 */
+    accent-color: var(--accent-blue);
   }
   
   /* 滑块样式 */
@@ -300,7 +292,7 @@
     gap: 12px;
   }
   .slider-item { display: block; }
-  .slider-label { margin-bottom: 4px; color: #ccc; }
+  .slider-label { margin-bottom: 4px; color: var(--text-sub); }
   .slider-control {
     display: flex;
     align-items: center;
@@ -324,7 +316,7 @@
     height: 14px;
     width: 14px;
     border-radius: 50%;
-    background: #3a86ff; /* 蓝色滑块 */
+    background: var(--accent-blue);
     cursor: pointer;
     margin-top: -5px; 
   }
@@ -332,18 +324,18 @@
     width: 100%;
     height: 4px;
     cursor: pointer;
-    background: #444;
+    background: var(--border-color);
     border-radius: 2px;
   }
   
   /* 下拉框和底部区域 */
   .control-group { margin-top: 15px; }
-  .control-group .label { margin-bottom: 6px; color: #ccc; }
+  .control-group .label { margin-bottom: 6px; color: var(--text-sub); }
   .flex-row { display: flex; gap: 8px; }
   .dark-select {
     flex: 1;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--bg-secondary);
+    color: var(--text-main);
     border: none;
     padding: 5px;
     border-radius: 4px;

@@ -1,0 +1,95 @@
+{
+  "common": {
+    "settings": "设置",
+    "confirm": "确定",
+    "cancel": "取消",
+    "close": "关闭",
+    "reset": "重置",
+    "save": "保存",
+    "export": "导出",
+    "import": "导入",
+    "clear": "清除",
+    "noFileSelected": "未选择文件",
+    "noImage": "无图片",
+    "uploadImage": "请上传图片"
+  },
+  "dialog": {
+    "title": "设置",
+    "aiSettings": "AI设置",
+    "about": "关于",
+    "ui": "主题设置",
+    "i18n": "语言设置"
+  },
+  "leftTab": {
+    "fileUpload": "文件上传",
+    "selectRawFile": "选择 RAW 文件",
+    "basicSettings": "基本设置",
+    "autoWhiteBalance": "自动白平衡",
+    "cameraWhiteBalance": "相机白平衡",
+    "viewLargeImage": "查看大屏图片",
+    "brightness": "亮度",
+    "exposure": "曝光补偿",
+    "saturation": "饱和度",
+    "contrast": "对比度",
+    "presetFilter": "预设滤镜",
+    "noFilter": "无滤镜",
+    "vivid": "鲜艳",
+    "soft": "柔和",
+    "bw": "黑白",
+    "saveCurrentConfig": "保存当前配置",
+    "lutColorTable": "LUT 颜色查找表",
+    "importLUT": "导入 LUT",
+    "exportPNG": "导出 PNG",
+    "exportJPEG": "导出 JPEG"
+  },
+  "rightTab": {
+    "colorAdjust": "颜色调整",
+    "detailProcess": "细节处理",
+    "colorReplace": "颜色替换",
+    "redHue": "红色色调",
+    "greenHue": "绿色色调",
+    "blueHue": "蓝色色调",
+    "highlights": "高光",
+    "shadows": "阴影",
+    "whites": "白色",
+    "featureDeveloping": "功能开发中...",
+    "imageDetail": "图片细节 - 跟随模式",
+    "position": "位置:",
+    "rgb": "RGB:",
+    "brightness": "亮度:",
+    "hue": "色相:"
+  },
+  "ai": {
+    "provider": "AI 模型厂商",
+    "modelName": "模型名称",
+    "apiKey": "API Key",
+    "apiKeyPlaceholder": "请输入API Key",
+    "alibaba": "阿里巴巴",
+    "openai": "OpenAI",
+    "anthropic": "Anthropic",
+    "qwenVlFlash": "通义千问3-VL-Flash",
+    "qwenVlMax": "通义千问-VL-Max",
+    "gpt4o": "GPT-4o"
+  },
+  "about": {
+    "version": "版本 v1.0.0",
+    "description": "这是一个高仿设置组件。"
+  },
+  "ui": {
+    "title": "UI设置",
+    "bgDark": "深色背景",
+    "bgDarkDesc": "左侧面板、右侧面板、对话框侧边栏",
+    "bgCard": "卡片背景",
+    "bgCardDesc": "对话框容器、内容区域",
+    "textMain": "主文字颜色",
+    "textMainDesc": "所有主要文本、按钮文字",
+    "accentBlue": "强调蓝色",
+    "accentBlueDesc": "选中项、链接、滑块、焦点边框",
+    "accentRed": "强调红色",
+    "accentRedDesc": "危险按钮、警告提示",
+    "btnPrimary": "主按钮颜色",
+    "btnPrimaryDesc": "主要操作按钮（导出、保存等）",
+    "reset": "重置为默认"
+  }
+}
+

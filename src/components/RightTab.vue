@@ -24,7 +24,7 @@
           
           <div class="slider-row">
             <div class="slider-header">
-              <span>红色色调</span>
+              <span>{{ $t('rightTab.redHue') }}</span>
               <span class="value-text">{{ config.redHue }}</span>
             </div>
             <input type="range" min="-100" max="100" v-model.number="config.redHue">
@@ -32,7 +32,7 @@
   
           <div class="slider-row">
             <div class="slider-header">
-              <span>绿色色调</span>
+              <span>{{ $t('rightTab.greenHue') }}</span>
               <span class="value-text">{{ config.greenHue }}</span>
             </div>
             <input type="range" min="-100" max="100" v-model.number="config.greenHue">
@@ -40,7 +40,7 @@
   
           <div class="slider-row">
             <div class="slider-header">
-              <span>蓝色色调</span>
+              <span>{{ $t('rightTab.blueHue') }}</span>
               <span class="value-text">{{ config.blueHue }}</span>
             </div>
             <input type="range" min="-100" max="100" v-model.number="config.blueHue">
@@ -48,7 +48,7 @@
   
           <div class="slider-row">
             <div class="slider-header">
-              <span>高光</span>
+              <span>{{ $t('rightTab.highlights') }}</span>
               <span class="value-text">{{ config.highlights }}</span>
             </div>
             <input type="range" min="-100" max="100" v-model.number="config.highlights">
@@ -56,7 +56,7 @@
   
           <div class="slider-row">
             <div class="slider-header">
-              <span>阴影</span>
+              <span>{{ $t('rightTab.shadows') }}</span>
               <span class="value-text">{{ config.shadows }}</span>
             </div>
             <input type="range" min="-100" max="100" v-model.number="config.shadows">
@@ -64,7 +64,7 @@
   
           <div class="slider-row">
             <div class="slider-header">
-              <span>白色</span>
+              <span>{{ $t('rightTab.whites') }}</span>
               <span class="value-text">{{ config.whites }}</span>
             </div>
             <!-- 注意：图片中白色默认值似乎是 100 -->
@@ -75,14 +75,14 @@
   
         <!-- 场景 B/C: 其他 Tab 的占位 -->
         <div v-else class="empty-placeholder">
-          {{ getTabLabel(activeTab) }} 功能开发中...
+          {{ getTabLabel(activeTab) }} {{ $t('rightTab.featureDeveloping') }}
         </div>
   
       </div>
   
       <!-- 3. 底部信息展示区 -->
       <div class="detail-card">
-        <div class="card-title">图片细节 - 跟随模式</div>
+        <div class="card-title">{{ $t('rightTab.imageDetail') }}</div>
         <div class="detail-content">
           <!-- 左侧预览图 -->
           <div class="preview-box">
@@ -91,25 +91,25 @@
               :src="imageInfo.previewUrl" 
               class="preview-img"
             />
-            <span v-else class="no-img-text">无图片</span>
+            <span v-else class="no-img-text">{{ $t('common.noImage') }}</span>
           </div>
           
           <!-- 右侧信息列表 -->
           <div class="info-list">
             <div class="info-item">
-              <span class="label">位置:</span>
-              <span class="value">{{ imageInfo.position || '请上传图片' }}</span>
+              <span class="label">{{ $t('rightTab.position') }}</span>
+              <span class="value">{{ imageInfo.position || $t('common.uploadImage') }}</span>
             </div>
             <div class="info-item">
-              <span class="label">RGB:</span>
+              <span class="label">{{ $t('rightTab.rgb') }}</span>
               <span class="value">{{ imageInfo.rgb || '-' }}</span>
             </div>
             <div class="info-item">
-              <span class="label">亮度:</span>
+              <span class="label">{{ $t('rightTab.brightness') }}</span>
               <span class="value">{{ imageInfo.brightness || '-' }}</span>
             </div>
             <div class="info-item">
-              <span class="label">色相:</span>
+              <span class="label">{{ $t('rightTab.hue') }}</span>
               <span class="value">{{ imageInfo.hue || '-' }}</span>
             </div>
           </div>
@@ -121,6 +121,9 @@
   
   <script setup>
   import { computed, ref } from 'vue';
+  import { useI18n } from 'vue-i18n';
+
+  const { t } = useI18n();
   
   const activeTab = ref('color');
   const config = ref({
@@ -139,20 +142,20 @@
     hue: ''
   });
   
-  const tabs = [
-    { key: 'color', label: '颜色调整' },
-    { key: 'detail', label: '细节处理' },
-    { key: 'replace', label: '颜色替换' }
-  ];
+  const tabs = computed(() => [
+    { key: 'color', label: t('rightTab.colorAdjust') },
+    { key: 'detail', label: t('rightTab.detailProcess') },
+    { key: 'replace', label: t('rightTab.colorReplace') }
+  ]);
   
   const switchTab = (key) => {
     activeTab.value = key;
   };
   
-  const getTabLabel = (key) => tabs.find(t => t.key === key)?.label;
+  const getTabLabel = (key) => tabs.value.find(t => t.key === key)?.label;
   
   const indicatorStyle = computed(() => {
-    const index = tabs.findIndex(t => t.key === activeTab.value);
+    const index = tabs.value.findIndex(t => t.key === activeTab.value);
     return {
       transform: `translateX(${index * 100}%)`
     };
@@ -163,10 +166,10 @@
   /* 容器基础 */
   .panel-container {
     width: 320px;
-    background-color: #1e1e1e; /* 之前定义的深色背景 */
+    background-color: var(--bg-dark);
     padding: 16px;
     font-family: 'Segoe UI', sans-serif;
-    color: #e0e0e0;
+    color: var(--text-main);
     border-radius: 4px;
     box-sizing: border-box;
   }
@@ -175,7 +178,7 @@
   .tabs-header {
     display: flex;
     position: relative;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 20px;
   }
   .tab-item {
@@ -184,7 +187,7 @@
     padding-bottom: 12px;
     cursor: pointer;
     font-size: 14px;
-    color: #888;
+    color: var(--text-sub);
     transition: color 0.3s;
     /* 处理文字换行，图片中是两行文字 */
     display: flex;
@@ -194,7 +197,7 @@
     line-height: 1.2;
   }
   .tab-item.active {
-    color: #fff;
+    color: var(--text-main);
     font-weight: 500;
   }
   .tab-indicator {
@@ -203,7 +206,7 @@
     left: 0;
     width: 33.33%; /* 3个tab平分 */
     height: 2px;
-    background-color: #3a86ff;
+    background-color: var(--accent-blue);
     transition: transform 0.3s ease;
   }
   
@@ -225,11 +228,11 @@
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    color: #ccc;
+    color: var(--text-sub);
   }
   .value-text {
     font-family: monospace;
-    color: #fff;
+    color: var(--text-main);
   }
   
   /* 复用之前的滑块 CSS */
@@ -244,7 +247,7 @@
     height: 14px;
     width: 14px;
     border-radius: 50%;
-    background: #3a86ff;
+    background: var(--accent-blue);
     cursor: pointer;
     margin-top: -5px; 
   }
@@ -252,14 +255,14 @@
     width: 100%;
     height: 4px;
     cursor: pointer;
-    background: #333;
+    background: var(--border-color);
     border-radius: 2px;
   }
   
   /* 3. 底部详情卡片 */
   .detail-card {
     margin-top: 24px;
-    border: 1px solid #444;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.02);
@@ -267,9 +270,9 @@
   .card-title {
     font-size: 14px;
     margin-bottom: 12px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 8px;
-    color: #e0e0e0;
+    color: var(--text-main);
   }
   .detail-content {
     display: flex;
@@ -286,7 +289,7 @@
     overflow: hidden;
   }
   .no-img-text {
-    color: #999;
+    color: var(--text-sub);
     font-size: 12px;
   }
   .preview-img {
@@ -306,12 +309,12 @@
     display: flex;
     justify-content: space-between;
   }
-  .info-item .label { color: #888; }
-  .info-item .value { color: #ccc; font-family: monospace; }
+  .info-item .label { color: var(--text-sub); }
+  .info-item .value { color: var(--text-sub); font-family: monospace; }
   
   .empty-placeholder {
     text-align: center;
-    color: #666;
+    color: var(--text-sub);
     padding-top: 40px;
   }
   </style>
